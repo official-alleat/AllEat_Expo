@@ -6,7 +6,7 @@ export default function PayScreen({ navigation }) {
         <Text>Go to Home</Text>
         <Button
           title="Go"
-          onPress={() => navigation.navigate('Home')}
+          onPress={() => navigation.navigate('Store')}
         />
       </View>
     );

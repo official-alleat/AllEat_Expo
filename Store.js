@@ -12,7 +12,7 @@ export default function StoreScreen({ navigation }) {
         <Text style={styles.titleName}>식당 리스트</Text>
       </View>
       <ScrollView style={styles.storeList}>
-        {stores.map((store) => (
+        {Object.values(stores).map((store) => (
         <View style={styles.storeCell}>
           <View style={styles.storeDescription}>
             <Image source={{uri: store.image}} style={styles.storeImage}></Image>
@@ -21,7 +21,7 @@ export default function StoreScreen({ navigation }) {
               <Text style={styles.storeTag}>{store.tag}</Text>
             </View>
           </View>
-          <Button onPress={() => navigation.navigate('Seat')} title="잔여좌석 확인"></Button>
+          <Button onPress={() => navigation.navigate('Seat', {storeName: store.name,})} title="잔여좌석 확인"></Button>
         </View>
         ))}
       </ScrollView>
@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff',
     },
     title: {
+      height: "7%",
       padding: 10,
       justifyContent: "center",
       alignItems: "flex-start",

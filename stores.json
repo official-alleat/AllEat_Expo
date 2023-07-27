@@ -1,92 +1,75 @@
-[
-    {
+{
+    "낙원스낵": {
         "id": 1,
         "name": "낙원스낵",
         "tag": "#낙원 #스낵 #술집",
-        "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170310_178%2F1489106896127frhab_JPEG%2F20170308_175539.jpg"
+        "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170310_178%2F1489106896127frhab_JPEG%2F20170308_175539.jpg",
+        "seat": [[1, 1, 1, 1, 1], [0, 0, 1, 0, 1], [1, 1, 1, 1, 0]]
     },
-    {
+    "마미주 실내포차": {
         "id": 2,
         "name": "마미주 실내포차",
         "tag": "#마미주 #실내 #포차",
         "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230630_285%2F1688128166581Sbaqh_JPEG%2F1688126940779.jpg"
     },
-    {
+    "빠빠빠 치킨": {
         "id": 3,
         "name": "빠빠빠 치킨",
         "tag": "#빠 #빠빠 #치킨",
         "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180330_124%2F1522375842521X9twO_PNG%2FqzMXrxLio43nP-dhoP9Mp7nD.png"
     },
-    {
+    "빠빠 치킨": {
         "id": 3,
         "name": "빠빠빠 치킨",
         "tag": "#빠 #빠빠 #치킨",
         "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180330_124%2F1522375842521X9twO_PNG%2FqzMXrxLio43nP-dhoP9Mp7nD.png"
     },
-    {
+    "빠": {
         "id": 3,
         "name": "빠빠빠 치킨",
         "tag": "#빠 #빠빠 #치킨",
         "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180330_124%2F1522375842521X9twO_PNG%2FqzMXrxLio43nP-dhoP9Mp7nD.png"
     },
-    {
+    "빠치킨": {
         "id": 3,
         "name": "빠빠빠 치킨",
         "tag": "#빠 #빠빠 #치킨",
         "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180330_124%2F1522375842521X9twO_PNG%2FqzMXrxLio43nP-dhoP9Mp7nD.png"
     },
-    {
+    "빠빠치킨": {
         "id": 3,
         "name": "빠빠빠 치킨",
         "tag": "#빠 #빠빠 #치킨",
         "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180330_124%2F1522375842521X9twO_PNG%2FqzMXrxLio43nP-dhoP9Mp7nD.png"
     },
-    {
+    "4": {
         "id": 3,
         "name": "빠빠빠 치킨",
         "tag": "#빠 #빠빠 #치킨",
         "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180330_124%2F1522375842521X9twO_PNG%2FqzMXrxLio43nP-dhoP9Mp7nD.png"
     },
-    {
+    "6": {
         "id": 3,
         "name": "빠빠빠 치킨",
         "tag": "#빠 #빠빠 #치킨",
         "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180330_124%2F1522375842521X9twO_PNG%2FqzMXrxLio43nP-dhoP9Mp7nD.png"
     },
-    {
+    "7": {
         "id": 3,
         "name": "빠빠빠 치킨",
         "tag": "#빠 #빠빠 #치킨",
         "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180330_124%2F1522375842521X9twO_PNG%2FqzMXrxLio43nP-dhoP9Mp7nD.png"
     },
-    {
+    "8": {
         "id": 3,
         "name": "빠빠빠 치킨",
         "tag": "#빠 #빠빠 #치킨",
         "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180330_124%2F1522375842521X9twO_PNG%2FqzMXrxLio43nP-dhoP9Mp7nD.png"
     },
-    {
+    "9": {
         "id": 3,
         "name": "빠빠빠 치킨",
         "tag": "#빠 #빠빠 #치킨",
         "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180330_124%2F1522375842521X9twO_PNG%2FqzMXrxLio43nP-dhoP9Mp7nD.png"
     },
-    {
-        "id": 3,
-        "name": "빠빠빠 치킨",
-        "tag": "#빠 #빠빠 #치킨",
-        "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180330_124%2F1522375842521X9twO_PNG%2FqzMXrxLio43nP-dhoP9Mp7nD.png"
-    },
-    {
-        "id": 3,
-        "name": "빠빠빠 치킨",
-        "tag": "#빠 #빠빠 #치킨",
-        "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180330_124%2F1522375842521X9twO_PNG%2FqzMXrxLio43nP-dhoP9Mp7nD.png"
-    },
-    {
-        "id": 3,
-        "name": "빠빠빠 치킨",
-        "tag": "#빠 #빠빠 #치킨",
-        "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180330_124%2F1522375842521X9twO_PNG%2FqzMXrxLio43nP-dhoP9Mp7nD.png"
-    },
-]
+}

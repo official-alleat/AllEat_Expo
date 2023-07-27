@@ -30,14 +30,14 @@ export default function CartScreen({ navigation }) {
             </View>
             <ScrollView contentContainerStyle={styles.menuList}>
                 <View style={styles.menuContainer}>
-                    <Text style={{flex: 5}}>메뉴명</Text>
+                    <Text style={{flex: 5}}>메뉴</Text>
                     <Text style={{flex: 2}}>수량</Text>
                     <Text style={{flex: 2, alignItems: 'flex-end'}}>가격</Text>
                 </View>
                 {renderCartItems()}
             </ScrollView>
             <View style={{flexDirection: 'row', padding: 50}}>
-                <Text style={{flex: 7}}>총액</Text>
+                <Text style={{flex: 7}}>합계</Text>
                 <Text style={{flex: 2, alignItems: 'flex-end'}}>{calculateTotalPrice()}</Text>
             </View>
             <Button

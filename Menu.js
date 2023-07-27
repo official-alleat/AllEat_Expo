@@ -83,7 +83,7 @@ export default function MenuScreen({ navigation }) {
             <Card.Cover source={item.image} />
             <Card.Content>
               <Title>{item.menu_name}</Title>
-              <Paragraph>Price: {item.price.toLocaleString()}</Paragraph>
+              <Paragraph>{item.price.toLocaleString()}원</Paragraph>
             </Card.Content>
           </Card>
         ))}
@@ -105,14 +105,14 @@ export default function MenuScreen({ navigation }) {
             <Card>
               <Card.Content>
                 <Title>{selectedItem?.menu_name}</Title>
-                <Paragraph>Price: {selectedItem?.price}</Paragraph>
+                <Paragraph>{selectedItem?.price}원</Paragraph>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginVertical: 10 }}>
                   <Button title="-" onPress={decreaseCount} />
                   <Text>{count}</Text>
                   <Button title="+" onPress={increaseCount} />
             </View>
                 <PaperButton icon="plus" onPress={setMenuCount}>
-                  Add to Cart
+                  담기
                 </PaperButton>
               </Card.Content>
             </Card>
@@ -126,7 +126,7 @@ export default function MenuScreen({ navigation }) {
             onPress: () => setShowMessage(false),
           }}
         >
-          The menu has been added to the cart.
+          메뉴가 장바구니에 담겼습니다
       </Snackbar>
       </View>
     );

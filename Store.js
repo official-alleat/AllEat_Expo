@@ -19,9 +19,10 @@ export default function StoreScreen({ navigation }) {
             <View>
               <Text style={styles.storeName}>{store.name}</Text>
               <Text style={styles.storeTag}>{store.tag}</Text>
+              <Text style={styles.storeLocation}>{store.location}</Text>
             </View>
           </View>
-          <Button onPress={() => navigation.navigate('Seat', {storeName: store.name,})} title="잔여좌석 확인"></Button>
+          <Button onPress={() => navigation.navigate('Seat', {storeId: store.id})} title="잔여좌석 확인"></Button>
         </View>
         ))}
       </ScrollView>
@@ -61,17 +62,23 @@ const styles = StyleSheet.create({
       fontWeight: "500",
     },
     storeImage: {
-      width: 50,
-      height: 50,
+      width: 60,
+      height: 60,
+      margin: 5,
+      borderRadius: 7,
     },
     storeTag: {
   
     },
     storeDescription: {
-      flexDirection: "row"
+      flexDirection: "row",
+      alignItems: "center",
     },
     storeButton: {
   
+    },
+    storeLocation: {
+
     },
   });
   

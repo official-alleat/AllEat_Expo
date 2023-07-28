@@ -14,15 +14,14 @@ const menu_data = [
   { image: require('./assets/mm.jpg'), menu_name: 'Noodle soup6', price: 1000 },
   // Add more menu items here
 ];
-const tableNum = 0;
-const customerNum = 4;
 
 const initialMenuData = menu_data.reduce((data, menuItem) => {
   data[menuItem.menu_name] = { price: menuItem.price, count: 0 };
   return data;
 }, {});
 
-export default function MenuScreen({ navigation }) {
+export default function MenuScreen({ route, navigation }) {
+    const { tableNum, customerNum } = route.params;
     const [menuData, setMenuData] = useState(initialMenuData);
     const [count, setCount] = useState(0);
     const [visible, setVisible] = useState(false);

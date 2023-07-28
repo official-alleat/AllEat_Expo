@@ -1,75 +1,98 @@
 {
-    "낙원스낵": {
-        "id": 1,
+    "1": {
+        "id": "1",
         "name": "낙원스낵",
         "tag": "#낙원 #스낵 #술집",
         "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170310_178%2F1489106896127frhab_JPEG%2F20170308_175539.jpg",
-        "seat": [[1, 1, 1, 1, 1], [0, 0, 1, 0, 1], [1, 1, 1, 1, 0]]
+        "location": "서울",
+        "seat": [[1, 2, 3, 4, 5], [0, 0, 6, 0, 7], [8, 9, 10, 11, 0]]
     },
-    "마미주 실내포차": {
-        "id": 2,
+    "2": {
+        "id": "2",
         "name": "마미주 실내포차",
         "tag": "#마미주 #실내 #포차",
-        "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230630_285%2F1688128166581Sbaqh_JPEG%2F1688126940779.jpg"
+        "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230630_285%2F1688128166581Sbaqh_JPEG%2F1688126940779.jpg",
+        "location": "서울특별시",
+        "seat": [[1, 2, 3, 4, 0], [5, 6, 0, 0, 7], [8, 9, 0, 10, 0]]
     },
-    "빠빠빠 치킨": {
-        "id": 3,
+    "3": {
+        "id": "3",
         "name": "빠빠빠 치킨",
         "tag": "#빠 #빠빠 #치킨",
-        "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180330_124%2F1522375842521X9twO_PNG%2FqzMXrxLio43nP-dhoP9Mp7nD.png"
-    },
-    "빠빠 치킨": {
-        "id": 3,
-        "name": "빠빠빠 치킨",
-        "tag": "#빠 #빠빠 #치킨",
-        "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180330_124%2F1522375842521X9twO_PNG%2FqzMXrxLio43nP-dhoP9Mp7nD.png"
-    },
-    "빠": {
-        "id": 3,
-        "name": "빠빠빠 치킨",
-        "tag": "#빠 #빠빠 #치킨",
-        "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180330_124%2F1522375842521X9twO_PNG%2FqzMXrxLio43nP-dhoP9Mp7nD.png"
-    },
-    "빠치킨": {
-        "id": 3,
-        "name": "빠빠빠 치킨",
-        "tag": "#빠 #빠빠 #치킨",
-        "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180330_124%2F1522375842521X9twO_PNG%2FqzMXrxLio43nP-dhoP9Mp7nD.png"
-    },
-    "빠빠치킨": {
-        "id": 3,
-        "name": "빠빠빠 치킨",
-        "tag": "#빠 #빠빠 #치킨",
-        "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180330_124%2F1522375842521X9twO_PNG%2FqzMXrxLio43nP-dhoP9Mp7nD.png"
+        "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180330_124%2F1522375842521X9twO_PNG%2FqzMXrxLio43nP-dhoP9Mp7nD.png",
+        "location": "서울특별시",
+        "seat": [[1, 2, 3, 4, 5], [0, 0, 6, 0, 7], [8, 9, 10, 11, 0]]
     },
     "4": {
-        "id": 3,
+        "id": "4",
         "name": "빠빠빠 치킨",
         "tag": "#빠 #빠빠 #치킨",
-        "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180330_124%2F1522375842521X9twO_PNG%2FqzMXrxLio43nP-dhoP9Mp7nD.png"
+        "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180330_124%2F1522375842521X9twO_PNG%2FqzMXrxLio43nP-dhoP9Mp7nD.png",
+        "location": "서울특별시",
+        "seat": [[1, 2, 3, 4, 5], [0, 0, 6, 0, 7], [8, 9, 10, 11, 0]]
+    },
+    "5": {
+        "id": "5",
+        "name": "빠빠빠 치킨",
+        "tag": "#빠 #빠빠 #치킨",
+        "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180330_124%2F1522375842521X9twO_PNG%2FqzMXrxLio43nP-dhoP9Mp7nD.png",
+        "location": "서울특별시",
+        "seat": [[1, 2, 3, 4, 5], [0, 0, 6, 0, 7], [8, 9, 10, 11, 0]]
     },
     "6": {
-        "id": 3,
+        "id": "6",
         "name": "빠빠빠 치킨",
         "tag": "#빠 #빠빠 #치킨",
-        "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180330_124%2F1522375842521X9twO_PNG%2FqzMXrxLio43nP-dhoP9Mp7nD.png"
+        "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180330_124%2F1522375842521X9twO_PNG%2FqzMXrxLio43nP-dhoP9Mp7nD.png",
+        "location": "서울특별시",
+        "seat": [[1, 2, 3, 4, 5], [0, 0, 6, 0, 7], [8, 9, 10, 11, 0]]
     },
     "7": {
-        "id": 3,
+        "id": "7",
         "name": "빠빠빠 치킨",
         "tag": "#빠 #빠빠 #치킨",
-        "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180330_124%2F1522375842521X9twO_PNG%2FqzMXrxLio43nP-dhoP9Mp7nD.png"
+        "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180330_124%2F1522375842521X9twO_PNG%2FqzMXrxLio43nP-dhoP9Mp7nD.png",
+        "location": "서울특별시",
+        "seat": [[1, 2, 3, 4, 5], [0, 0, 6, 0, 7], [8, 9, 10, 11, 0]]
     },
     "8": {
-        "id": 3,
+        "id": "8",
         "name": "빠빠빠 치킨",
         "tag": "#빠 #빠빠 #치킨",
-        "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180330_124%2F1522375842521X9twO_PNG%2FqzMXrxLio43nP-dhoP9Mp7nD.png"
+        "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180330_124%2F1522375842521X9twO_PNG%2FqzMXrxLio43nP-dhoP9Mp7nD.png",
+        "location": "서울특별시",
+        "seat": [[1, 2, 3, 4, 5], [0, 0, 6, 0, 7], [8, 9, 10, 11, 0]]
     },
     "9": {
-        "id": 3,
+        "id": "9",
         "name": "빠빠빠 치킨",
         "tag": "#빠 #빠빠 #치킨",
-        "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180330_124%2F1522375842521X9twO_PNG%2FqzMXrxLio43nP-dhoP9Mp7nD.png"
+        "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180330_124%2F1522375842521X9twO_PNG%2FqzMXrxLio43nP-dhoP9Mp7nD.png",
+        "location": "서울특별시",
+        "seat": [[1, 2, 3, 4, 5], [0, 0, 6, 0, 7], [8, 9, 10, 11, 0]]
     },
+    "10": {
+        "id": "10",
+        "name": "빠빠빠 치킨",
+        "tag": "#빠 #빠빠 #치킨",
+        "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180330_124%2F1522375842521X9twO_PNG%2FqzMXrxLio43nP-dhoP9Mp7nD.png",
+        "location": "서울특별시",
+        "seat": [[1, 2, 3, 4, 5], [0, 0, 6, 0, 7], [8, 9, 10, 11, 0]]
+    },
+    "11": {
+        "id": "11",
+        "name": "빠빠빠 치킨",
+        "tag": "#빠 #빠빠 #치킨",
+        "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180330_124%2F1522375842521X9twO_PNG%2FqzMXrxLio43nP-dhoP9Mp7nD.png",
+        "location": "서울특별시",
+        "seat": [[1, 2, 3, 4, 5], [0, 0, 6, 0, 7], [8, 9, 10, 11, 0]]
+    },
+    "12": {
+        "id": "12",
+        "name": "빠빠빠 치킨",
+        "tag": "#빠 #빠빠 #치킨",
+        "image": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180330_124%2F1522375842521X9twO_PNG%2FqzMXrxLio43nP-dhoP9Mp7nD.png",
+        "location": "서울특별시",
+        "seat": [[1, 2, 3, 4, 5], [0, 0, 6, 0, 7], [8, 9, 10, 11, 0]]
+    }
 }

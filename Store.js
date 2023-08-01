@@ -9,11 +9,12 @@ export default function StoreScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.title}>
-        <Text style={styles.titleName}>식당 리스트</Text>
+        <Text style={styles.titleName}>올잇.</Text>
       </View>
+
       <ScrollView style={styles.storeList}>
         {Object.values(stores).map((store) => (
-        <View style={styles.storeCell}>
+        <View key={store.id} style={styles.storeCell}>
           <View style={styles.storeDescription}>
             <Image source={{uri: store.image}} style={styles.storeImage}></Image>
             <View>
@@ -22,7 +23,9 @@ export default function StoreScreen({ navigation }) {
               <Text style={styles.storeLocation}>{store.location}</Text>
             </View>
           </View>
-          <Button onPress={() => navigation.navigate('Seat', {storeId: store.id})} title="잔여좌석 확인"></Button>
+          <View style={{marginRight: 5}}>
+            <Button color="#D0A9F5" onPress={() => navigation.navigate('Seat', {storeId: store.id})} title="잔여좌석 확인"></Button>
+          </View>
         </View>
         ))}
       </ScrollView>
@@ -36,29 +39,38 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff',
     },
     title: {
-      height: "7%",
+      height: "10%",
       padding: 10,
-      justifyContent: "center",
+      backgroundColor: '#8b00ff',
+      justifyContent: "flex-end",
       alignItems: "flex-start",
     },
     titleName: {
       fontSize: 30,
-      fontWeight: "500",
+      fontWeight: "700",
+      color: "white",
     },
     storeList: {
       backgroundColor: "white",
       width: SCREEN_WIDTH,
     },
     storeCell: {
-      backgroundColor: "#e9ecef",
+      backgroundColor: "white",
       flexDirection: "row",
       alignItems: "center",
       justifyContent: "space-between",
       borderRadius: 7,
       margin: 5,
+      // Shadow properties for iOS
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.3,
+      shadowRadius: 4,
+      shadowColor: 'black',
+      // Elevation for Android (comment this out if you're using iOS shadow properties)
+      elevation: 3,
     },
     storeName: {
-      fontSize: 30,
+      fontSize: 22,
       fontWeight: "500",
     },
     storeImage: {

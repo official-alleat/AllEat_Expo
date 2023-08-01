@@ -16,8 +16,8 @@ export default function App() {
     <PaperProvider>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Store" component={StoreScreen} />
-          <Stack.Screen name="Seat" component={SeatScreen} />
+          <Stack.Screen name="Store" component={StoreScreen} options={{ headerShown: false }}/>
+          <Stack.Screen name="Seat" component={SeatScreen} options={{ title: '좌석 예약하기' }}/>
           <Stack.Screen name="Menu" component={MenuScreen} />
           <Stack.Screen name="Cart" component={CartScreen} />
           <Stack.Screen name="Pay" component={PayScreen} />

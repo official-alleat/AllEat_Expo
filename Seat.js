@@ -1,40 +1,34 @@
-import { Image, Pressable, TouchableWithoutFeedback, Modal, StyleSheet, Alert, Dimensions, Button, Text, View } from 'react-native';
-
+import React, { useState, useEffect } from 'react';
+import { Image, Pressable, TouchableWithoutFeedback, Modal, StyleSheet, Dimensions, Button, Text, View } from 'react-native';
 import stores from './stores.json';
-import React, { useState, useRef, useEffect } from 'react';
 
-const {width: SCREEN_WIDTH} = Dimensions.get("window")
-const {BUTTON_COLOR} = "#D0A9F5"
+const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
 export default function SeatScreen({ route, navigation }) {
     const { storeId } = route.params;
-    var store = stores[storeId];
+    const store = stores[storeId];
+    const tables = store['tables'];
 
     const [modalVisible, setModalVisible] = useState(false);
     const [adultCount, setAdultCount] = useState(0);
     const [childCount, setChildCount] = useState(0);
     const [tableNum, setTableNum] = useState(0);
-    const [seatsStatus, setSeatsStatus] = useState([]);
+    const [tablesStatus, setTablesStatus] = useState([]);
 
     const ws = new WebSocket("ws://192.168.219.103:8080");
 
-    // 웹소켓 서버 생성
     useEffect(() => {
-
       ws.onopen = () => {
-        // connection opened
         console.log('Connection is open.');
-        ws.send(JSON.stringify({'storeId': storeId, 'tableNum': -1, 'command': 'get'}));
-        // ws.send('something');  // send a message
+        ws.send(JSON.stringify({'storeId': storeId, 'tableNum': -1, 'command': 'get'})); // 자리 정보 요청
       };
     
       ws.onmessage = (event) => {
         console.log('Received from server:', event.data);
   
-        var jsonData = JSON.parse(event.data); // storeId, tableNum, command
-        var storeId = jsonData[0];
-        var newStatus = jsonData[1]['available'];
-        setSeatsStatus(newStatus);
+        const jsonData = JSON.parse(event.data); // storeId, tableNum, command
+        const newStatus = jsonData[1]['available'];
+        setTablesStatus(newStatus);
       };
     
       ws.onerror = (error) => {
@@ -47,28 +41,25 @@ export default function SeatScreen({ route, navigation }) {
       };
     }, []);
   
-    const getSeat = (storeId) => {
-      var store = stores[storeId];
-      var seats = store["seat"];
-
+    const getTables = () => {
       return(
-        seats.map((seatRow, row) => (
-          <View key={row} style={{flexDirection: 'row'}}>
+        tables.map((tableRow, row) => (
+          <View key={row} style={{ flexDirection: 'row' }}>
             {
-              seatRow.map((seat, col) => (
-                seat ? 
-                seatsStatus[seat] ?
-                <Pressable key={row * 100 + col} style={styles.availableSeat} onPress={() =>
-                  {setModalVisible(!modalVisible), setTableNum(seat)}}>
-                  <Text style={styles.seatName}>좌석{seat}</Text>
+              tableRow.map((table, col) => (
+                table ? 
+                tablesStatus[table] ?
+                <Pressable key={row * 100 + col} style={styles.availableTable} onPress={() =>
+                  {setModalVisible(!modalVisible), setTableNum(table)}}>
+                  <Text style={styles.tableName}>좌석{table}</Text>
                 </Pressable>
                 :
-                <Pressable key={row * 100 + col} style={styles.reservedSeat} onPress={() =>
-                  {setTableNum(seat)}}>
-                  <Text style={styles.seatName}>좌석{seat}</Text>
+                <Pressable key={row * 100 + col} style={styles.reservedTable} onPress={() =>
+                  {setTableNum(table)}}>
+                  <Text style={styles.tableName}>좌석{table}</Text>
                 </Pressable>
                 :
-                <View key={row * 100 + col} style={styles.notSeat}></View>
+                <View key={row * 100 + col} style={styles.notTable}></View>
               ))
             }
           </View>
@@ -80,7 +71,7 @@ export default function SeatScreen({ route, navigation }) {
       <View style={styles.container}>
         <View style={styles.storeCell}>
           <View style={styles.storeDescription}>
-            <Image source={{uri: store.image}} style={styles.storeImage}></Image>
+            <Image style={styles.storeImage} source={{ uri: store.image }}/>
             <View>
               <Text style={styles.storeName}>{store.name}</Text>
               <Text style={styles.storeTag}>{store.tag}</Text>
@@ -89,12 +80,10 @@ export default function SeatScreen({ route, navigation }) {
           </View>
         </View>
 
-        <View style={styles.seats}>
-        <View style={{alignItems: 'center'}}>
-          {getSeat(storeId)}
+        <View style={styles.tableGrid}>
+          {getTables()}
           <Button title="예약하기" onPress={() => ws.send(JSON.stringify({'storeId': storeId, 'tableNum': tableNum, 'command': 'reserve'}))}/>
           <Button title="취소하기" onPress={() => ws.send(JSON.stringify({'storeId': storeId, 'tableNum': tableNum, 'command': 'cancel'}))}/>
-        </View>
         </View>
 
         <Modal animationType="fade" transparent={true} visible={modalVisible}>
@@ -102,21 +91,21 @@ export default function SeatScreen({ route, navigation }) {
             <TouchableWithoutFeedback onPress={() => setModalVisible(!modalVisible)}>
               <View style={{flex: 1}}></View>
             </TouchableWithoutFeedback>
-            <View style={{backgroundColor: "white", padding: 10, borderRadius: 10}}>
-              <View style={{flexDirection: 'row', justifyContent: 'space-around', margin: 10}}>
+            <View style={styles.modal}>
+              <View style={styles.selectNumOfPeople}>
                 <Text>성인</Text>
-                <Button title="-" onPress={() => adultCount != 0 ? setAdultCount(pre => pre - 1) : setAdultCount(pre => pre)} />
+                <Button title="-" onPress={() => adultCount > 0 && setAdultCount(pre => pre - 1)}/>
                 <Text>{adultCount}</Text>
                 <Button title="+" onPress={() => setAdultCount(pre => pre + 1)} />
               </View>
-              <View style={{flexDirection: 'row', justifyContent: 'space-around', margin: 10}}>
+              <View style={styles.selectNumOfPeople}>
                 <Text>유아</Text>
-                <Button title="-" onPress={() => childCount != 0 ? setChildCount(pre => pre - 1) : setChildCount(pre => pre)} />
+                <Button title="-" onPress={() => childCount > 0 && setChildCount(pre => pre - 1)}/>
                 <Text>{childCount}</Text>
                 <Button title="+" onPress={() => setChildCount(pre => pre + 1)} />
               </View>
               <Button
-                color={BUTTON_COLOR}
+                color='#D0A9F5'
                 title="메뉴 고르기"
                 onPress={() => navigation.navigate('Menu', {tableNum: tableNum, customerNum: adultCount + childCount})}
               />
@@ -125,84 +114,19 @@ export default function SeatScreen({ route, navigation }) {
         </Modal>
       </View>
     );
-  }
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#e6e6fa',
   },
-  title: {
-    height: "7%",
-    padding: 10,
-    justifyContent: "center",
-    alignItems: "flex-start",
-  },
-  titleName: {
-    fontSize: 30,
-    fontWeight: "500",
-  },
-  row: {
-    flexDirection: 'row',
-    width: SCREEN_WIDTH,
-    justifyContent: "center",
-  },
-  availableSeat: {
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "white",
-    borderStyle: 'solid',
-    borderWidth: 1,
-    margin: 10,
-    padding: 5,
-    borderRadius: 7,
-    height: 50,
-    width: 50,
-  },
-  reservedSeat: {
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#616161",
-    borderStyle: 'solid',
-    borderWidth: 1,
-    margin: 10,
-    padding: 5,
-    borderRadius: 7,
-    height: 50,
-    width: 50,
-  },
-  seatName: {
-    fontSize: 13,
-    fontWeight: "500",
-  },
-  notSeat: {
-    justifyContent: "center",
-    backgroundColor: "#fff",
-    margin: 10,
-    padding: 5,
-    borderRadius: 7,
-    height: 50,
-    width: 50,
-  },
-  storeName: {
-    fontSize: 22,
-    fontWeight: "500",
-  },
-  storeImage: {
-    width: 60,
-    height: 60,
-    margin: 5,
-    borderRadius: 7,
-  },
-  storeTag: {
-
-  },
   storeCell: {
     flex: 1,
-    backgroundColor: "white",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    backgroundColor: 'white',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     borderRadius: 7,
     margin: 5,
     
@@ -218,10 +142,78 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
   },
-  seats: {
+  storeImage: {
+    width: 60,
+    height: 60,
+    margin: 5,
+    borderRadius: 7,
+  },
+  storeName: {
+    fontSize: 22,
+    fontWeight: '500',
+  },
+  storeTag: {
+  },
+  storeLocation: {
+  },
+  tableGrid: {
     flex: 8,
-    backgroundColor: "white",
+    backgroundColor: 'white',
     borderRadius: 7,
     margin: 5,
-  }
+    alignItems: 'center',
+  },
+  row: {
+    flexDirection: 'row',
+    width: SCREEN_WIDTH,
+    justifyContent: "center",
+  },
+  availableTable: {
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "white",
+    borderStyle: 'solid',
+    borderWidth: 1,
+    margin: 10,
+    padding: 5,
+    borderRadius: 7,
+    height: 50,
+    width: 50,
+  },
+  reservedTable: {
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#616161",
+    borderStyle: 'solid',
+    borderWidth: 1,
+    margin: 10,
+    padding: 5,
+    borderRadius: 7,
+    height: 50,
+    width: 50,
+  },
+  notTable: {
+    justifyContent: "center",
+    backgroundColor: "#fff",
+    margin: 10,
+    padding: 5,
+    borderRadius: 7,
+    height: 50,
+    width: 50,
+  },
+  tableName: {
+    fontSize: 13,
+    fontWeight: "500",
+  },
+  modal: {
+    backgroundColor: 'white',
+    padding: 10,
+    borderRadius: 10
+  },
+  selectNumOfPeople: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    margin: 10
+  },
+
 });

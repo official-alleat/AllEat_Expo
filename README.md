@@ -7,5 +7,5 @@
 혹은
 > npm start
 
-2번 터미널. Server.js 구동
+2번 터미널. server.js 구동
 > npm run backend

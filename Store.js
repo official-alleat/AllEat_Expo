@@ -1,18 +1,28 @@
-import React from 'react';
-import { Image, StyleSheet, ScrollView, Dimensions, Button, View, Text } from 'react-native';
-import stores from './stores.json';
+import React, { useState } from 'react';
+import { Image, StyleSheet, ScrollView, Dimensions, Button, View, Text, TextInput } from 'react-native';
+import stores from './stores.js';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
 export default function StoreScreen({ navigation }) {
+  const [searchText, setSearchText] = useState('');
+  const filteredStores = Object.values(stores).filter((store) =>
+    store.name.toLowerCase().includes(searchText.toLowerCase())
+  );
+
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
         <Text style={styles.titleName}>올잇.</Text>
       </View>
-
+      <TextInput
+        style={styles.searchInput}
+        placeholder="가게 이름 검색"
+        value={searchText}
+        onChangeText={(text) => setSearchText(text)}
+      />
       <ScrollView style={styles.storeList}>
-        {Object.values(stores).map((store) => (
+        {filteredStores.map((store) => (
         <View key={store.id} style={styles.storeCell}>
           <View style={styles.storeDescription}>
             <Image style={styles.storeImage} source={{ uri: store.image }}/>
@@ -49,6 +59,14 @@ const styles = StyleSheet.create({
       fontSize: 30,
       fontWeight: '700',
       color: 'white',
+    },
+    searchInput: {
+      height: 40,
+      borderWidth: 1,
+      borderColor: '#DEDEDE',
+      borderRadius: 7,
+      paddingHorizontal: 10,
+      margin: 10,
     },
     storeList: {
       backgroundColor: 'white',
@@ -90,5 +108,6 @@ const styles = StyleSheet.create({
     storeButton: {
       marginRight: 5,
     },
+
   });
   

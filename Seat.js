@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Image, Pressable, TouchableWithoutFeedback, Modal, StyleSheet, Dimensions, Button, Text, View } from 'react-native';
-import stores from './stores.json';
+import stores from './stores.js';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
 export default function SeatScreen({ route, navigation }) {
     const { storeId } = route.params;
     const store = stores[storeId];
-    const tables = store['tables'];
+    const tables = store.tables;
 
     const [modalVisible, setModalVisible] = useState(false);
     const [adultCount, setAdultCount] = useState(0);
@@ -94,20 +94,20 @@ export default function SeatScreen({ route, navigation }) {
             <View style={styles.modal}>
               <View style={styles.selectNumOfPeople}>
                 <Text>성인</Text>
-                <Button title="-" onPress={() => adultCount > 0 && setAdultCount(pre => pre - 1)}/>
+                <Button color='#D0A9F5' title="-" onPress={() => adultCount > 0 && setAdultCount(pre => pre - 1)}/>
                 <Text>{adultCount}</Text>
-                <Button title="+" onPress={() => setAdultCount(pre => pre + 1)} />
+                <Button color='#D0A9F5' title="+" onPress={() => setAdultCount(pre => pre + 1)} />
               </View>
               <View style={styles.selectNumOfPeople}>
                 <Text>유아</Text>
-                <Button title="-" onPress={() => childCount > 0 && setChildCount(pre => pre - 1)}/>
+                <Button color='#D0A9F5' title="-" onPress={() => childCount > 0 && setChildCount(pre => pre - 1)}/>
                 <Text>{childCount}</Text>
-                <Button title="+" onPress={() => setChildCount(pre => pre + 1)} />
+                <Button color='#D0A9F5' title="+" onPress={() => setChildCount(pre => pre + 1)} />
               </View>
               <Button
                 color='#D0A9F5'
                 title="메뉴 고르기"
-                onPress={() => navigation.navigate('Menu', {tableNum: tableNum, customerNum: adultCount + childCount})}
+                onPress={() => navigation.navigate('Menu', {storeId, storeId, tableNum: tableNum, customerNum: adultCount + childCount})}
               />
             </View>
           </View>
@@ -119,7 +119,7 @@ export default function SeatScreen({ route, navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#e6e6fa',
+    backgroundColor: '#D0A9F5',
   },
   storeCell: {
     flex: 1,

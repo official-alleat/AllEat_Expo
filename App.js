@@ -9,6 +9,16 @@ import MenuScreen from "./Menu.js";
 import PayScreen from "./Pay.js";
 import CartScreen from "./Cart.js";
 
+import { decode, encode } from 'base-64';
+
+if (!global.btoa) {
+  global.btoa = encode;
+}
+
+if (!global.atob) {
+  global.atob = decode;
+}
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {

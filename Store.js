@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Image, StyleSheet, ScrollView, Dimensions, Button, View, Text, TextInput } from 'react-native';
+import { Image, StyleSheet, TouchableWithoutFeedback, ScrollView, Dimensions, Button, View, Text, TextInput } from 'react-native';
 import stores from './stores.js';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
@@ -17,28 +17,29 @@ export default function StoreScreen({ navigation }) {
       </View>
       <TextInput
         style={styles.searchInput}
-        placeholder="가게 이름 검색"
+        placeholder="가게 이름 검색하기"
         value={searchText}
         onChangeText={(text) => setSearchText(text)}
       />
-      <ScrollView style={styles.storeList}>
-        {filteredStores.map((store) => (
-        <View key={store.id} style={styles.storeCell}>
-          <View style={styles.storeDescription}>
-            <Image style={styles.storeImage} source={{ uri: store.image }}/>
-            <View>
-              <Text style={styles.storeName}>{store.name}</Text>
-              <Text style={styles.storeTag}>{store.tag}</Text>
-              <Text style={styles.storeLocation}>{store.location}</Text>
-            </View>
-          </View>
-
-          <View style={styles.storeButton}>
-            <Button title="잔여좌석 확인" color='#D0A9F5' onPress={() => navigation.navigate('Seat', { storeId: store.id })}/>
-          </View>
-        </View>
-        ))}
-      </ScrollView>
+        <ScrollView style={styles.storeList}>
+            {filteredStores.map((store) => (
+                <TouchableWithoutFeedback
+                    key={store.id}
+                    onPress={() => navigation.navigate('Seat', { storeId: store.id })} // 네비게이션 처리
+                >
+                    <View style={styles.storeCell}>
+                        <View style={styles.storeDescription}>
+                            <Image style={styles.storeImage} source={{ uri: store.image }} />
+                            <View>
+                                <Text style={styles.storeName}>{store.name}</Text>
+                                <Text style={styles.storeTag}>{store.tag}</Text>
+                                <Text style={styles.storeLocation}>{store.location}</Text>
+                            </View>
+                        </View>
+                    </View>
+                </TouchableWithoutFeedback>
+            ))}
+        </ScrollView>
     </View>
   );
 }
@@ -85,15 +86,15 @@ const styles = StyleSheet.create({
       shadowRadius: 4,
       shadowColor: 'black',
       // Elevation for Android (comment this out if you're using iOS shadow properties)
-      elevation: 3,
+      elevation: 2,
     },
     storeDescription: {
       flexDirection: 'row',
       alignItems: 'center',
     },
     storeImage: {
-      width: 60,
-      height: 60,
+      width: 70,
+      height: 70,
       margin: 5,
       borderRadius: 7,
     },

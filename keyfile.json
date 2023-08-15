@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "alleat-395512",
+  "private_key_id": "377f55faa3a41c15376e2789d4eb10582dc61ccd",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC25VT0eIkZqtnR\ny90/GbAaEQJhG9TyvifqlvLXUH9vvuVQ+1b62UG05RFxOtGSLwM/rgaND3Ihspod\n1WheMXiJxx8Tk2pniHHM4qjNBQSlfYZt1yY9XmGR45DW7aWVZAVhEzRx39lCYpbG\nsaOx07sZf6EycK4/NHuEQ8Q1WZW7xjiCAeuhgloA/BP4tTu3DBmmo8DoKNShLBmp\npx7u7KQBPqw5jEZshz+9MqIVjT5k5Xptk9DgRHjEWxboN1VyH4Xs3uNQTVmS6aY5\nIvOjKcF6KX9yS6aJRGs91KszX6+FSBbzq2zEyXE9H9pejGWrLum/ojsL12fWXss5\nNg5uTXZlAgMBAAECggEALU8P5kZsFHc+Ydpis4yeEz8Oe1clQIN6KQP/IfcXsuu0\nLIUvbZJf1DwBP69GFrRd1is7BTwD1rRDuMtTAS65QUyadsOI0yA6rPqjvbKWDZdU\ns6Zem0pj2nvpOE2EPUebi4px7hn53RfGaW+9cULWMYFsQi4nBJJwXPpaw6qvTOZp\niF+bXzH6HpEt5dic4aWdtVyJ0VCEIW1BkL6z6TzWcMSz5H0+40sa1EVbT/aTUbu9\n63TeDDtJpZmwFNm0t943lHQjvDv6xwTbzODhZ4/OV8hg2ijRNHMAiDntpLEyaver\njRcV5cQ2YF5PoLIKo/yd/Z+jKqQXsLe9hKWMUDeXuwKBgQDYtMZwlFv6kejNLqWr\nhYnHrOo2ceZ7hoILlzW7F6xZijweIqDXiD3VxKV/nfHWBYLT8qYV2kQdjyzWf9EZ\nSR0iNkfWQT0f0FGOJPCyVAhjOlcgqrZTOOMWY/2QdIHOUBwLlm9NpA2Xgb8xiAIP\nx1Gz1n/ZvVQL1HL4LlGGocrvJwKBgQDYDx/P3r9PCNjhbse4ljH0E/FjVAugWjX0\nt5uNCxeVTDizE/oNTbIGNZH5XPQC1Io9uxVxJjG2Nsqmk06lJlJpmZDT3Nrd53ca\nQEnW5nWoNRKLJF3vVVP79Kl/cgpBvH2ssomAuciIlsb8SCE4peZnVNfJECWdKdzH\nL9X8NY6lkwKBgQCLdcs/KDsJRl1LrnlvqMDCf8U6xJJPbIDEdMtfXBzOguetfRuF\nmWgx6huXxU2dLm7Dd6Tq60xquXlhkWA/pY3aNpSEjfeIQcg6cgt0uB+tvB3WKAau\nCC4cerzz+gaPf36M9oMqtCkLF7Sza5PoE53A3ono1q7/7fkPPr+4pOa0gQKBgD7X\nt1MI4PAmDJ8VT7YayZDKtC1F5tPPKV5ygSX3Efb04pEDwHlaHeu8bSbwqHCiTUtD\nPStaBp+PNEZbFkbm7JWWew+Eb4yXpIbYKCH/ij1QooIiI8hXM0RXl21gSCdyocM3\nctMkNnW0FVCP0kndxzRK8zCiJ66c3IB7I2xmT4VNAoGAHkIi03d7ibZMgpVNyGyV\nXdgiGeIni+P6djhSe1qqlCzShk9xkKct1SWwShfjHlJw6PdjC+/kcVZooJMDC8NS\nr44p+rU7jmYuLGjUXSzLAm0rl2f518u1/ti8W6dqn4e/+1vmC+lyMVNJFQjLuPG9\nvDNqgT71yec41YgdJjHjVPo=\n-----END PRIVATE KEY-----\n",
+  "client_email": "alleat@alleat-395512.iam.gserviceaccount.com",
+  "client_id": "112145505448158007649",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/alleat%40alleat-395512.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

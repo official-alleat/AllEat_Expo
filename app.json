@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "AllEat_Expo",
+    "name": "올잇",
     "slug": "AllEat_Expo",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/icon.jpg",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -15,16 +15,77 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.founders.alleat",
+      "buildNumber": "1.0.0",
+      "supportsTablet": true,
+      "infoPlist": {
+        "LSApplicationQueriesSchemes": [
+          "kftc-bankpay",
+          "ispmobile",
+          "itms-apps",
+          "hdcardappcardansimclick",
+          "smhyundaiansimclick",
+          "shinhan-sr-ansimclick",
+          "smshinhanansimclick",
+          "kb-acp",
+          "mpocket.online.ansimclick",
+          "ansimclickscard",
+          "ansimclickipcollect",
+          "vguardstart",
+          "samsungpay",
+          "scardcertiapp",
+          "lottesmartpay",
+          "lotteappcard",
+          "cloudpay",
+          "nhappcardansimclick",
+          "nonghyupcardansimclick",
+          "citispay",
+          "citicardappkr",
+          "citimobileapp",
+          "kakaotalk",
+          "payco",
+          "chaipayment",
+          "kb-auth",
+          "hyundaicardappcardid",
+          "com.wooricard.wcard",
+          "lmslpay",
+          "lguthepay-xpay",
+          "liivbank",
+          "supertoss"
+        ],
+        "NSAppTransportSecurity": {
+          "NSAllowsArbitraryLoads": true,
+          "NSAllowsArbitraryLoadsInWebContent": true
+        }
+      }
     },
     "android": {
+      "package": "com.founders.alleat",
+      "versionCode": 1,
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/icon.jpg",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "category": [
+            "DEFAULT",
+            "BROWSABLE"
+          ],
+          "data": {
+            "scheme": "exampleformanagedexpo"
+          }
+        }
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "89b5e15e-e674-4227-954e-d86108735283"
+      }
     }
   }
 }

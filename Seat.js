@@ -4,6 +4,14 @@ import stores from './stores.js';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
+function RoundWhiteButton({ title, onPress }) {
+  return (
+    <Pressable style={styles.button} onPress={onPress}>
+      <Text style={styles.buttonText}>{title}</Text>
+    </Pressable>
+  );
+}
+
 export default function SeatScreen({ route, navigation }) {
     const { storeId } = route.params;
     const store = stores[storeId];
@@ -15,7 +23,7 @@ export default function SeatScreen({ route, navigation }) {
     const [tableNum, setTableNum] = useState(0);
     const [tablesStatus, setTablesStatus] = useState([]);
 
-    const ws = new WebSocket("ws://192.168.219.103:8080");
+    const ws = new WebSocket("ws://192.168.0.104:8080");
 
     useEffect(() => {
       ws.onopen = () => {
@@ -82,8 +90,8 @@ export default function SeatScreen({ route, navigation }) {
 
         <View style={styles.tableGrid}>
           {getTables()}
-          <Button title="예약하기" onPress={() => ws.send(JSON.stringify({'storeId': storeId, 'tableNum': tableNum, 'command': 'reserve'}))}/>
-          <Button title="취소하기" onPress={() => ws.send(JSON.stringify({'storeId': storeId, 'tableNum': tableNum, 'command': 'cancel'}))}/>
+          {/* <Button title="예약하기" onPress={() => ws.send(JSON.stringify({'storeId': storeId, 'tableNum': tableNum, 'command': 'reserve'}))}/>
+          <Button title="취소하기" onPress={() => ws.send(JSON.stringify({'storeId': storeId, 'tableNum': tableNum, 'command': 'cancel'}))}/> */}
         </View>
 
         <Modal animationType="fade" transparent={true} visible={modalVisible}>
@@ -94,21 +102,31 @@ export default function SeatScreen({ route, navigation }) {
             <View style={styles.modal}>
               <View style={styles.selectNumOfPeople}>
                 <Text>성인</Text>
-                <Button color='#D0A9F5' title="-" onPress={() => adultCount > 0 && setAdultCount(pre => pre - 1)}/>
+                <Pressable style={styles.button} onPress={() => adultCount > 0 && setAdultCount(pre => pre - 1)}>
+                  <Text style={styles.buttonText}>-</Text>
+                </Pressable>
                 <Text>{adultCount}</Text>
-                <Button color='#D0A9F5' title="+" onPress={() => setAdultCount(pre => pre + 1)} />
+                <Pressable style={styles.button} onPress={() => setAdultCount(pre => pre + 1)}>
+                  <Text style={styles.buttonText}>+</Text>
+                </Pressable>
               </View>
               <View style={styles.selectNumOfPeople}>
                 <Text>유아</Text>
-                <Button color='#D0A9F5' title="-" onPress={() => childCount > 0 && setChildCount(pre => pre - 1)}/>
+                <Pressable style={styles.button} onPress={() => childCount > 0 && setChildCount(pre => pre - 1)}>
+                  <Text style={styles.buttonText}>-</Text>
+                </Pressable>
                 <Text>{childCount}</Text>
-                <Button color='#D0A9F5' title="+" onPress={() => setChildCount(pre => pre + 1)} />
+                <Pressable style={styles.button} onPress={() => setChildCount(pre => pre + 1)}>
+                  <Text style={styles.buttonText}>+</Text>
+                </Pressable>
               </View>
-              <Button
-                color='#D0A9F5'
-                title="메뉴 고르기"
-                onPress={() => navigation.navigate('Menu', {storeId, storeId, tableNum: tableNum, customerNum: adultCount + childCount})}
-              />
+              <View style={{alignItems: 'center'}}>
+              <TouchableWithoutFeedback onPress={() => navigation.navigate('Menu', {storeId, storeId, tableNum: tableNum, customerNum: adultCount + childCount})}>
+                <View style={styles.menuButton}>
+                  <Text style={styles.menuButtonText}>메뉴 고르기</Text>
+                </View>
+              </TouchableWithoutFeedback>
+              </View>
             </View>
           </View>
         </Modal>
@@ -119,7 +137,6 @@ export default function SeatScreen({ route, navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#D0A9F5',
   },
   storeCell: {
     flex: 1,
@@ -127,16 +144,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    borderRadius: 7,
-    margin: 5,
-    
-    // Shadow properties for iOS
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 4,
-    shadowColor: 'black',
-    // Elevation for Android (comment this out if you're using iOS shadow properties)
-    elevation: 3,
+    marginBottom: 10,
   },
   storeDescription: {
     flexDirection: "row",
@@ -159,8 +167,6 @@ const styles = StyleSheet.create({
   tableGrid: {
     flex: 8,
     backgroundColor: 'white',
-    borderRadius: 7,
-    margin: 5,
     alignItems: 'center',
   },
   row: {
@@ -208,12 +214,43 @@ const styles = StyleSheet.create({
   modal: {
     backgroundColor: 'white',
     padding: 10,
-    borderRadius: 10
+    borderRadius: 10,
+    justifyContent: 'center',
   },
   selectNumOfPeople: {
     flexDirection: 'row',
     justifyContent: 'space-around',
+    alignItems: 'center',
     margin: 10
   },
-
+  button: {
+    backgroundColor: 'white', // 배경색을 하얀색으로 설정
+    borderRadius: 25, // 동그란 버튼을 위해 반지름 값을 반 정도로 설정
+    paddingVertical: 5,
+    paddingHorizontal: 11,
+    alignItems: 'center', // 텍스트 가운데 정렬
+    borderWidth: 1,
+    borderColor: 'gray', // 테두리 색상을 하얀색으로 설정
+  },
+  buttonText: {
+    color: 'black', // 텍스트 색상을 검은색으로 설정
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  menuButton: {
+    width: '90%',
+    backgroundColor: '#8B00FF', // 배경색 추가
+    alignItems: 'center', // 텍스트 가운데 정렬
+    paddingVertical: 3,
+    marginTop: 10,
+    borderWidth: 1,
+    borderRadius: 5,
+    borderColor: '#8B00FF',
+  },
+  menuButtonText: {
+      color: 'white',
+      fontSize: 14,
+      marginVertical: 10,
+      marginHorizontal: 24,
+  },
 });

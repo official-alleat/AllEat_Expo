@@ -25,12 +25,12 @@ export default function App() {
   return (
     <PaperProvider>
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{ headerShadowVisible: false }}>
           <Stack.Screen name='Store' component={StoreScreen} options={{ headerShown: false }}/>
           <Stack.Screen name='Seat' component={SeatScreen} options={{ title: '좌석 예약하기' }}/>
           <Stack.Screen name='Menu' component={MenuScreen} options={{ title: '메뉴 고르기' }}/>
           <Stack.Screen name='Cart' component={CartScreen} options={{ title: '장바구니' }}/>
-          <Stack.Screen name='Pay' component={PayScreen} />
+          <Stack.Screen name='Pay' component={PayScreen} options={{ title: '결제하기' }}/>
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>
